@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 10:38:48 by abenamar          #+#    #+#             */
-/*   Updated: 2023/05/30 23:43:55 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/01 00:25:05 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,12 @@ void	ft_sort(t_list **lst_a)
 			(ft_push(&lst_b, lst_a), ft_printf("pb\n"));
 		else
 			(ft_push(lst_a, &lst_b), ft_printf("pa\n"));
+		if (lst_b && lst_b->next)
+		{
+			if (ft_int(lst_b) < ft_int(ft_lstlast(lst_b)))
+				(ft_rotate(&lst_b), ft_printf("rb\n"));
+			else if (ft_int(lst_b->next) > ft_int(lst_b))
+				(ft_swap(&lst_b), ft_printf("sb\n"));
+		}
 	}
 }
