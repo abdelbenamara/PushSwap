@@ -6,33 +6,38 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:01:54 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/08 12:41:14 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/09 00:33:16 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_bubble_sort(int *tab, int size)
+static void	ft_shellsort(int *tab, int size)
 {
+	int	gap;
 	int	tmp;
 	int	i;
 	int	j;
 
-	i = 0;
-	while (i < size)
+	gap = 1;
+	while (gap - 1 < size)
+		gap *= 2;
+	while (gap - 1 >= 0)
 	{
-		j = i + 1;
-		while (j < size)
+		i = gap;
+		while (i < size)
 		{
-			if (tab[i] > tab[j])
+			tmp = tab[i];
+			j = i;
+			while (j >= gap && tab[j - gap] > tmp)
 			{
-				tmp = tab[i];
-				tab[i] = tab[j];
-				tab[j] = tmp;
+				tab[j] = tab[j - gap];
+				j -= gap;
 			}
-			++j;
+			tab[j] = tmp;
+			++i;
 		}
-		++i;
+		gap /= 2;
 	}
 }
 
@@ -41,7 +46,7 @@ t_list	*ft_normalize(t_list *lst, int *tab, int size)
 	t_list	*first;
 	int		i;
 
-	ft_bubble_sort(tab, size);
+	ft_shellsort(tab, size);
 	first = lst;
 	while (lst)
 	{
