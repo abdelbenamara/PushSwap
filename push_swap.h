@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:51:17 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/08 12:11:31 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/08 21:30:16 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include "libft.h"
 # include "limits.h"
+
+# ifndef DIVIDE
+#  define DIVIDE	7
+# endif
 
 long	ft_atol(const char *nptr);
 int		ft_int(t_list *lst);
