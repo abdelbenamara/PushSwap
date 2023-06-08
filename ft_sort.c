@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 10:38:48 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/08 21:06:08 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/08 22:15:01 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	ft_clear(char *op_a, t_list **lst_a, char *op_b, t_list **lst_b)
 	while (ft_lstsize(*lst_a) > 3)
 	{
 		if (ft_lstsize(*lst_b) == max)
-			max += (ft_lstsize(*lst_a) + ft_lstsize(*lst_b)) / 7;
+			max += (ft_lstsize(*lst_a) + ft_lstsize(*lst_b)) / DIVIDE;
 		if (max < 3 || max > ft_lstsize(*lst_a) + ft_lstsize(*lst_b) - 3)
 			max = ft_lstsize(*lst_a) + ft_lstsize(*lst_b) - 3;
 		ft_strlcpy(op_a, "", 1);
@@ -70,8 +70,7 @@ static void	ft_mini_sort(char *op_a, t_list **lst_a, char *op_b, t_list **lst_b)
 		if (*lst_b && (*lst_b)->next)
 		{
 			if (!ft_strncmp(op_a, "rra", 4)
-				&& ft_int(*lst_b) < ft_int(ft_lstlast(*lst_b))
-				&& ft_int(*lst_b) > ft_int((*lst_b)->next))
+				&& ft_int(*lst_b) < ft_int(ft_lstlast(*lst_b)))
 				ft_strlcpy(op_b, "rrb", 4);
 			else if (!ft_strncmp(op_a, "ra", 3)
 				&& ft_int(*lst_b) < ft_int(ft_lstlast(*lst_b)))
