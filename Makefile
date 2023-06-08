@@ -6,7 +6,7 @@
 #    By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 12:51:00 by abenamar          #+#    #+#              #
-#    Updated: 2023/06/08 12:12:31 by abenamar         ###   ########.fr        #
+#    Updated: 2023/06/08 21:35:22 by abenamar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,10 @@ CFLAGS := -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
 CFLAGS += -g3
+
+ifdef DIVIDE
+CFLAGS += -DDIVIDE=$(DIVIDE)
+endif
 
 RM := rm -f
 
