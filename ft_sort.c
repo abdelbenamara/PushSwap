@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 10:38:48 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/09 18:51:13 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/09 19:00:04 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ static void	ft_fill_b(char *op_a, t_list **lst_a, char *op_b, t_list **lst_b)
 		ft_strlcpy(op_a, "", 1);
 		ft_strlcpy(op_b, "", 1);
 		if (*lst_b && (*lst_b)->next)
-			if (ft_int(*lst_b) < ft_int((*lst_b)->next))
+			if (ft_int(*lst_b) < ft_int((*lst_b)->next)
+				|| ft_int(*lst_b) < ft_int(ft_lstlast(*lst_b)))
 				ft_strlcpy(op_b, "rb", 3);
 		if (ft_int(*lst_a) <= max)
 			ft_strlcpy(op_a, "pb", 3);
