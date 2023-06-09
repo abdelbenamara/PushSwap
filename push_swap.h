@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:51:17 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/08 21:30:16 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/09 18:42:58 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_push(t_list **lst_dst, t_list **lst_src);
 void	ft_rotate(t_list **lst);
 void	ft_reverse_rotate(t_list **lst);
 
+uint8_t	ft_is_sorted(t_list *lst);
 void	ft_operate(char *op_a, t_list **lst_a, char *op_b, t_list **lst_b);
 void	ft_sort(t_list *lst_a);
 
