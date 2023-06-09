@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 11:34:50 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/08 16:56:55 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/09 18:39:39 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ft_snapshot(t_list *lst_a, t_list *lst_b)
 	(void) lst_b;
 }
 
-static void	ft_proceed(char *op_a, t_list **lst_a, char *op_b, t_list **lst_b)
+static void	ft_operate_b(char *op_b, t_list **lst_a, t_list **lst_b)
 {
 	if (!ft_strncmp(op_b, "rrb", 4))
 		(ft_reverse_rotate(lst_b), ft_printf("rrb\n"),
@@ -38,6 +38,10 @@ static void	ft_proceed(char *op_a, t_list **lst_a, char *op_b, t_list **lst_b)
 	else if (!ft_strncmp(op_b, "pa", 3))
 		(ft_push(lst_a, lst_b), ft_printf("pa\n"),
 			ft_snapshot(*lst_a, *lst_b));
+}
+
+static void	ft_operate_a(char *op_a, t_list **lst_a, t_list **lst_b)
+{
 	if (!ft_strncmp(op_a, "rra", 4))
 		(ft_reverse_rotate(lst_a), ft_printf("rra\n"),
 			ft_snapshot(*lst_a, *lst_b));
@@ -64,5 +68,5 @@ void	ft_operate(char *op_a, t_list **lst_a, char *op_b, t_list **lst_b)
 		(ft_swap(lst_a), ft_swap(lst_b), ft_printf("ss\n"),
 			ft_snapshot(*lst_a, *lst_b));
 	else
-		ft_proceed(op_a, lst_a, op_b, lst_b);
+		(ft_operate_b(op_b, lst_a, lst_b), ft_operate_a(op_a, lst_a, lst_b));
 }
