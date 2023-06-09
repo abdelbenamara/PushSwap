@@ -6,7 +6,7 @@
 #    By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 12:51:00 by abenamar          #+#    #+#              #
-#    Updated: 2023/06/08 21:35:22 by abenamar         ###   ########.fr        #
+#    Updated: 2023/06/09 18:43:21 by abenamar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRCS += ft_swap.c
 SRCS += ft_push.c
 SRCS += ft_rotate.c
 SRCS += ft_reverse_rotate.c
+SRCS += ft_is_sorted.c
 SRCS += ft_operate.c
 SRCS += ft_sort.c
 SRCS += push_swap.c
