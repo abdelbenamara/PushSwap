@@ -19,7 +19,7 @@ if __name__ == "__main__":
 			print(('KO' if (n == 3 and nb_operations > 2) or (n == 5 and nb_operations > 12) else 'OK') + ' (' + str(nb_operations) + ')')
 	else:
 		max_score = 0
-		for i in range(10):
+		for i in range(100):
 			random.shuffle(numbers)
 			args = " ".join([str(nb) for nb in numbers])
 			print(args + ' : ', end='')
