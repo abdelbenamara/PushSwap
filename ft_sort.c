@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 10:38:48 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/10 02:44:52 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/10 17:15:24 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ static void	ft_sort_b(int min, t_list **lst_a, char *op_b, t_list **lst_b)
 		tmp = tmp->next;
 	if (!tmp)
 		return ;
-	else if (!pos)
-		ft_operate("", lst_a, "pa", lst_b);
+	else if (!pos && ft_int(tmp) < ft_int(*lst_a))
+		ft_strlcpy(op_b, "pa", 3);
 	else if (pos > ft_lstsize(*lst_b) / 2)
 		ft_strlcpy(op_b, "rrb", 4);
 	else if (pos)
@@ -81,18 +81,22 @@ static void	ft_sort_b(int min, t_list **lst_a, char *op_b, t_list **lst_b)
 
 static void	ft_fill_a(char *op_a, t_list **lst_a, char *op_b, t_list **lst_b)
 {
+	const int	size = ft_lstsize(*lst_a) + ft_lstsize(*lst_b);
 	int			min;
+	t_list		*tmp;
 
-	min = ft_lstsize(*lst_b) / DIVIDE;
+	min = ft_lstsize(*lst_b) / 2;
 	while (ft_lstsize(*lst_b) > min)
 	{
 		ft_strlcpy(op_a, "", 1);
 		ft_sort_b(min, lst_a, op_b, lst_b);
-		if (ft_int(*lst_a) + 1 < ft_int((*lst_a)->next)
-			|| ft_int(ft_lstlast(*lst_a)) + 1 == ft_int(*lst_a))
+		if (ft_strncmp(op_b, "pa", 3))
 		{
-			if (ft_int(*lst_a) + 1 < ft_int((*lst_a)->next)
-				|| ft_int(*lst_a) > ft_int(ft_lstlast(*lst_a)) + 1)
+			tmp = *lst_a;
+			while (ft_int(tmp) < size && tmp->next
+				&& ft_int(tmp) + 1 == ft_int(tmp->next))
+				tmp = tmp->next;
+			if (tmp && ft_int(tmp) < size)
 				ft_strlcpy(op_a, "ra", 3);
 			else if (ft_int(ft_lstlast(*lst_a)) + 1 == ft_int(*lst_a))
 				ft_strlcpy(op_a, "rra", 4);
