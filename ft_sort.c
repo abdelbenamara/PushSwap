@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 10:38:48 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/10 17:15:24 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/10 17:51:12 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,8 @@ void	ft_sort(t_list *lst_a)
 	t_list	*lst_b;
 	char	op_a[4];
 	char	op_b[4];
+	int		pos;
+	t_list	*tmp;
 
 	if (ft_is_sorted(lst_a))
 		return ;
@@ -118,5 +120,11 @@ void	ft_sort(t_list *lst_a)
 	ft_sort_a(&lst_a, &lst_b);
 	while (lst_b)
 		ft_fill_a(op_a, &lst_a, op_b, &lst_b);
-	ft_sort_a(&lst_a, &lst_b);
+	tmp = lst_a;
+	pos = 0;
+	while (ft_int(tmp) != 1 && (++pos))
+		tmp = tmp->next;
+	while (!ft_is_sorted(lst_a) && ((pos > ft_lstsize(lst_a) / 2
+				&& ft_strlcpy(op_a, "rra", 4)) || ft_strlcpy(op_a, "ra", 3)))
+		ft_operate(op_a, &lst_a, "", &lst_b);
 }
