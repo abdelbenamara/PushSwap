@@ -19,6 +19,7 @@ if __name__ == "__main__":
 			print(('KO' if (n == 3 and nb_operations > 2) or (n == 5 and nb_operations > 12) else 'OK') + ' (' + str(nb_operations) + ')')
 	else:
 		max_score = 0
+		worst = ""
 		for i in range(100):
 			random.shuffle(numbers)
 			args = " ".join([str(nb) for nb in numbers])
@@ -26,8 +27,10 @@ if __name__ == "__main__":
 			push_swap = subprocess.run('./push_swap ' + args + " | wc -l", stdout=subprocess.PIPE, shell=True)
 			nb_operations = int(push_swap.stdout.decode('utf-8').strip('\n'))
 			if nb_operations > max_score:
+				worst = args
 				max_score = nb_operations
 				# print('...')
 			print(('KO' if (n == 100 and nb_operations > 700) or (n == 500 and nb_operations > 5500) else 'OK') + ' (' + str(nb_operations) + ')')
+		# print(worst + ' : ', end='')
 		print('Result : ' + ('KO' if (n == 100 and max_score > 700) or (n == 500 and max_score > 5500) else 'OK') + ' (' + str(max_score) + ')')
 
