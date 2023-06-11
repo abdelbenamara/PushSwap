@@ -6,22 +6,25 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 11:34:50 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/09 18:39:39 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/11 11:02:01 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// while (lst_a)
-// 	(ft_printf("%d ", ft_int(lst_a)), lst_a = lst_a->next);
-// ft_printf("| ");
-// while (lst_b)
-// 	(ft_printf("%d ", ft_int(lst_b)), lst_b = lst_b->next);
-// ft_printf("\n");
 static void	ft_snapshot(t_list *lst_a, t_list *lst_b)
 {
+#ifdef SNAPSHOT
+	while (lst_a)
+		(ft_printf("%d ", ft_int(lst_a)), lst_a = lst_a->next);
+	ft_printf("| ");
+	while (lst_b)
+		(ft_printf("%d ", ft_int(lst_b)), lst_b = lst_b->next);
+	ft_printf("\n");
+#else
 	(void) lst_a;
 	(void) lst_b;
+#endif
 }
 
 static void	ft_operate_b(char *op_b, t_list **lst_a, t_list **lst_b)
