@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 10:38:48 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/11 02:01:11 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/11 11:36:56 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	ft_fill_b(char *op_a, t_list **lst_a, char *op_b, t_list **lst_b)
 			max = size - 3;
 		ft_strlcpy(op_b, "", 1);
 		if (*lst_b && (*lst_b)->next)
-			if (ft_int(*lst_b) < ft_int((*lst_b)->next)
+			if (ft_int(*lst_b) < max / 2
 				|| ft_int(*lst_b) < ft_int(ft_lstlast(*lst_b)))
 				ft_strlcpy(op_b, "rb", 3);
 		if (ft_int(*lst_a) <= max)
@@ -68,7 +68,7 @@ static void	ft_sort_b(int min, t_list **lst_a, char *op_b, t_list **lst_b)
 			|| (ft_int(ft_lstlast(*lst_a)) != size
 				&& ft_int(tmp) < ft_int(ft_lstlast(*lst_a)))) && (++pos))
 		tmp = tmp->next;
-	if (!tmp)
+	if (!tmp || ft_int(*lst_b) - 1 == ft_int(*lst_a))
 		return ;
 	else if (((*lst_b)->next
 			&& ft_int(ft_lstlast(*lst_b)) + 1 == ft_int(*lst_a))
