@@ -30,7 +30,7 @@ if __name__ == "__main__":
 			scores_sum += nb_operations
 			print(('\033[1m\033[31mKO' if (n == 3 and nb_operations > 2) or (n == 5 and nb_operations > 12) else 'OK') + ' (' + str(nb_operations) + ')\033[0m')
 	else:
-		nb_cases = 100
+		nb_cases = 1000
 		for i in range(nb_cases):
 			random.shuffle(numbers)
 			args = " ".join([str(nb) for nb in numbers])
@@ -46,4 +46,3 @@ if __name__ == "__main__":
 			print(('\033[1m\033[31mKO' if (n == 100 and nb_operations > 700) or (n == 500 and nb_operations > 5500) else 'OK') + ' (' + str(nb_operations) + ')\033[0m')
 	print(f'\n- - -\nMax : {max_case}', end='')
 	print(f'\n- - -\nMax : {max_score}\nAvg : {math.ceil(scores_sum / nb_cases)}\nMin : {min_score}')
-
