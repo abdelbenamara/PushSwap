@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 10:38:48 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/11 11:36:56 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/11 12:02:32 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,9 @@ static void	ft_fill_b(char *op_a, t_list **lst_a, char *op_b, t_list **lst_b)
 		if (ft_lstsize(*lst_b) == max || max < 3 || max > size - 3)
 			max = size - 3;
 		ft_strlcpy(op_b, "", 1);
-		if (*lst_b && (*lst_b)->next)
-			if (ft_int(*lst_b) < max / 2
-				|| ft_int(*lst_b) < ft_int(ft_lstlast(*lst_b)))
-				ft_strlcpy(op_b, "rb", 3);
+		if (*lst_b && (*lst_b)->next && (ft_int(*lst_b) < max / 2
+				|| ft_int(*lst_b) < ft_int(ft_lstlast(*lst_b))))
+			ft_strlcpy(op_b, "rb", 3);
 		if (ft_int(*lst_a) <= max)
 			ft_strlcpy(op_a, "pb", 3);
 		else
@@ -70,12 +69,11 @@ static void	ft_sort_b(int min, t_list **lst_a, char *op_b, t_list **lst_b)
 		tmp = tmp->next;
 	if (!tmp || ft_int(*lst_b) - 1 == ft_int(*lst_a))
 		return ;
-	else if (((*lst_b)->next
-			&& ft_int(ft_lstlast(*lst_b)) + 1 == ft_int(*lst_a))
-		|| pos > ft_lstsize(*lst_b) / 2)
+	else if (pos > ft_lstsize(*lst_b) / 2 || ((*lst_b)->next
+			&& ft_int(ft_lstlast(*lst_b)) + 1 == ft_int(*lst_a)))
 		ft_strlcpy(op_b, "rrb", 4);
-	else if (((*lst_b)->next && ft_int((*lst_b)->next) + 1 == ft_int(*lst_a))
-		|| pos)
+	else if (pos || ((*lst_b)->next
+			&& ft_int((*lst_b)->next) + 1 == ft_int(*lst_a)))
 		ft_strlcpy(op_b, "rb", 3);
 	else if (!pos && ft_int(tmp) < ft_int(*lst_a))
 		ft_strlcpy(op_b, "pa", 3);
