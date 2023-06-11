@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 10:38:48 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/10 17:51:12 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/11 02:01:11 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@ static void	ft_fill_b(char *op_a, t_list **lst_a, char *op_b, t_list **lst_b)
 	while (ft_lstsize(*lst_a) > 3)
 	{
 		if (ft_lstsize(*lst_b) == max)
-			max += size / DIVIDE;
-		if (max < 3 || max > size - 3)
+			max += ft_lstsize(*lst_a) / DIVIDE;
+		if (ft_lstsize(*lst_b) == max || max < 3 || max > size - 3)
 			max = size - 3;
 		ft_strlcpy(op_b, "", 1);
 		if (*lst_b && (*lst_b)->next)
-			if (ft_int(*lst_b) < max / 2
-				|| ft_int(*lst_b) < ft_int((*lst_b)->next)
+			if (ft_int(*lst_b) < ft_int((*lst_b)->next)
 				|| ft_int(*lst_b) < ft_int(ft_lstlast(*lst_b)))
 				ft_strlcpy(op_b, "rb", 3);
 		if (ft_int(*lst_a) <= max)
@@ -71,12 +70,15 @@ static void	ft_sort_b(int min, t_list **lst_a, char *op_b, t_list **lst_b)
 		tmp = tmp->next;
 	if (!tmp)
 		return ;
+	else if (((*lst_b)->next
+			&& ft_int(ft_lstlast(*lst_b)) + 1 == ft_int(*lst_a))
+		|| pos > ft_lstsize(*lst_b) / 2)
+		ft_strlcpy(op_b, "rrb", 4);
+	else if (((*lst_b)->next && ft_int((*lst_b)->next) + 1 == ft_int(*lst_a))
+		|| pos)
+		ft_strlcpy(op_b, "rb", 3);
 	else if (!pos && ft_int(tmp) < ft_int(*lst_a))
 		ft_strlcpy(op_b, "pa", 3);
-	else if (pos > ft_lstsize(*lst_b) / 2)
-		ft_strlcpy(op_b, "rrb", 4);
-	else if (pos)
-		ft_strlcpy(op_b, "rb", 3);
 }
 
 static void	ft_fill_a(char *op_a, t_list **lst_a, char *op_b, t_list **lst_b)
@@ -85,7 +87,7 @@ static void	ft_fill_a(char *op_a, t_list **lst_a, char *op_b, t_list **lst_b)
 	int			min;
 	t_list		*tmp;
 
-	min = ft_lstsize(*lst_b) / 2;
+	min = ft_lstsize(*lst_b) / DIVIDE;
 	while (ft_lstsize(*lst_b) > min)
 	{
 		ft_strlcpy(op_a, "", 1);
