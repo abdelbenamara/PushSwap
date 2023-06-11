@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:51:17 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/11 11:41:52 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/11 15:58:34 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include "libft.h"
 # include "limits.h"
 
-# ifndef DIVIDE
-#  define DIVIDE	4
+# ifndef BRACKETS
+#  define BRACKETS	4
 # endif
 
 long	ft_atol(const char *nptr);
