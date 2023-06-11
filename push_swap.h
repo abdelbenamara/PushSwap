@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:51:17 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/11 01:34:32 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/11 11:41:52 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "limits.h"
 
 # ifndef DIVIDE
-#  define DIVIDE	3
+#  define DIVIDE	4
 # endif
 
 long	ft_atol(const char *nptr);
