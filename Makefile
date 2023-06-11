@@ -6,7 +6,7 @@
 #    By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 12:51:00 by abenamar          #+#    #+#              #
-#    Updated: 2023/06/09 18:43:21 by abenamar         ###   ########.fr        #
+#    Updated: 2023/06/11 11:03:04 by abenamar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,10 @@ CFLAGS += -g3
 
 ifdef DIVIDE
 CFLAGS += -DDIVIDE=$(DIVIDE)
+endif
+
+ifdef SNAPSHOT
+CFLAGS += -DSNAPSHOT
 endif
 
 RM := rm -f
