@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 10:38:48 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/11 12:02:32 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/11 15:58:15 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	ft_fill_b(char *op_a, t_list **lst_a, char *op_b, t_list **lst_b)
 	while (ft_lstsize(*lst_a) > 3)
 	{
 		if (ft_lstsize(*lst_b) == max)
-			max += ft_lstsize(*lst_a) / DIVIDE;
+			max += ft_lstsize(*lst_a) / BRACKETS;
 		if (ft_lstsize(*lst_b) == max || max < 3 || max > size - 3)
 			max = size - 3;
 		ft_strlcpy(op_b, "", 1);
@@ -85,7 +85,7 @@ static void	ft_fill_a(char *op_a, t_list **lst_a, char *op_b, t_list **lst_b)
 	int			min;
 	t_list		*tmp;
 
-	min = ft_lstsize(*lst_b) / DIVIDE;
+	min = ft_lstsize(*lst_b) / BRACKETS;
 	while (ft_lstsize(*lst_b) > min)
 	{
 		ft_strlcpy(op_a, "", 1);
