@@ -6,7 +6,7 @@
 #    By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 12:51:00 by abenamar          #+#    #+#              #
-#    Updated: 2023/06/11 16:01:53 by abenamar         ###   ########.fr        #
+#    Updated: 2023/06/14 12:49:56 by abenamar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,6 @@ LDLIBS := -lft
 SRCS := ft_atol.c
 SRCS += ft_int.c
 SRCS += ft_check.c
-SRCS += ft_normalize.c
 SRCS += ft_swap.c
 SRCS += ft_push.c
 SRCS += ft_rotate.c
@@ -48,14 +47,6 @@ CFLAGS := -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
 CFLAGS += -g3
-
-ifdef BRACKETS
-CFLAGS += -DBRACKETS=$(BRACKETS)
-endif
-
-ifdef SNAPSHOT
-CFLAGS += -DSNAPSHOT
-endif
 
 RM := rm -f
 
