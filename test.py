@@ -14,7 +14,7 @@ if __name__ == "__main__":
 	max_score = 0
 	min_score = 1000000
 	scores_sum = 0
-	if n == 3 or n == 5:
+	if n <= 5:
 		permutations = list(itertools.permutations(numbers))
 		nb_cases = len(permutations)
 		for nums in permutations:
