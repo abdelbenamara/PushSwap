@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:51:21 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/15 01:54:27 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/16 00:41:20 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ int	main(int ac, char **av)
 			return (ft_lstclear(&lst_a, &free), ft_lstclear(&lst_b, &free), 1);
 		op = get_next_line(STDIN_FILENO);
 	}
-	if (ft_is_sorted(lst_a) && ft_lstsize(lst_b) == 0
+	if (ft_is_sorted(lst_a)
+		&& ft_lstsize(lst_b) == 0
 		&& ft_lstsize(lst_a) == ac - 1)
 		ft_printf("OK\n");
 	else
