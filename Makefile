@@ -6,7 +6,7 @@
 #    By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 12:51:00 by abenamar          #+#    #+#              #
-#    Updated: 2023/06/14 12:49:56 by abenamar         ###   ########.fr        #
+#    Updated: 2023/06/15 02:20:50 by abenamar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,15 @@ SRCS += ft_operate.c
 SRCS += ft_sort.c
 SRCS += push_swap.c
 
-BSRCS := checker.c
+BSRCS := ft_atol.c
+BSRCS += ft_int.c
+BSRCS += ft_check.c
+BSRCS += ft_swap.c
+BSRCS += ft_push.c
+BSRCS += ft_rotate.c
+BSRCS += ft_reverse_rotate.c
+BSRCS += ft_is_sorted.c
+BSRCS += checker.c
 
 OBJS := $(SRCS:.c=.o)
 
@@ -46,7 +54,6 @@ CC := cc
 CFLAGS := -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
-CFLAGS += -g3
 
 RM := rm -f
 
