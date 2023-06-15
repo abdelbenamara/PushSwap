@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 10:38:48 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/14 13:35:08 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/15 21:44:03 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ int	ft_sort(t_list *lst_a, int size, int parts, uint8_t print)
 	t_list	*tmp;
 
 	if (ft_is_sorted(lst_a))
-		return (0);
+		return (ft_lstclear(&lst_a, &free), 0);
 	stck = malloc(sizeof(t_stack));
 	if (!stck)
 		return (-1);
