@@ -1,4 +1,4 @@
-# PushSwap
+# PushSwap tester
 
 ## Installation
 
