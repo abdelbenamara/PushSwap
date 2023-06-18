@@ -6,15 +6,15 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:51:17 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/16 00:09:45 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/18 15:19:40 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <limits.h>
 # include "libft.h"
-# include "limits.h"
 
 typedef struct s_stack
 {
