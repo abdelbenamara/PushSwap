@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 10:38:48 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/16 00:41:14 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/18 11:42:03 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ static void	ft_fill_b(t_stack *stck, int size, int splits)
 		if (b_size == max || max < 3 || max > size - 3)
 			max = size - 3;
 		ft_strlcpy(stck->op_b, "", 1);
-		if (stck->b && stck->b->next && (ft_int(stck->b) < (max + b_size) / 2
+		if (stck->b && stck->b->next
+			&& (ft_int(stck->b) < (max + b_size) / 2
 				|| ft_int(stck->b) < ft_int(ft_lstlast(stck->b))))
 			ft_strlcpy(stck->op_b, "rb", 3);
 		if (ft_int(stck->a) <= max && (++b_size))
@@ -65,15 +66,20 @@ static void	ft_sort_b(t_stack *stck, int size, int min, int *b_size)
 	pos = 0;
 	tmp = stck->b;
 	ft_strlcpy(stck->op_b, "", 1);
-	while (tmp && (ft_int(tmp) <= min || (ft_int(ft_lstlast(stck->a)) != size
-				&& ft_int(tmp) < ft_int(ft_lstlast(stck->a)))) && (++pos))
+	while (tmp
+		&& (ft_int(tmp) <= min
+			|| (ft_int(ft_lstlast(stck->a)) != size
+				&& ft_int(tmp) < ft_int(ft_lstlast(stck->a))))
+		&& (++pos))
 		tmp = tmp->next;
 	if (!tmp || ft_int(stck->b) - 1 == ft_int(stck->a))
 		return ;
-	else if (pos > (*b_size) / 2 || (stck->b->next
+	else if (pos > (*b_size) / 2
+		|| (stck->b->next
 			&& ft_int(ft_lstlast(stck->b)) + 1 == ft_int(stck->a)))
 		ft_strlcpy(stck->op_b, "rrb", 4);
-	else if (pos || (stck->b->next
+	else if (pos
+		|| (stck->b->next
 			&& ft_int(stck->b->next) + 1 == ft_int(stck->a)))
 		ft_strlcpy(stck->op_b, "rb", 3);
 	else if (!pos && ft_int(tmp) < ft_int(stck->a))
@@ -95,7 +101,8 @@ static void	ft_fill_a(t_stack *stck, int size, int splits)
 		if (ft_strncmp(stck->op_b, "pa", 3))
 		{
 			tmp = stck->a;
-			while (ft_int(tmp) < size && tmp->next
+			while (ft_int(tmp) < size
+				&& tmp->next
 				&& ft_int(tmp) + 1 == ft_int(tmp->next))
 				tmp = tmp->next;
 			if (tmp && ft_int(tmp) < size)
