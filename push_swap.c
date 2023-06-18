@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:51:14 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/16 00:40:52 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/18 11:26:04 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	ft_normalize(int *tab, t_list **lst)
 
 int	main(int ac, char **av)
 {
-	const int	splits = 3 + (ac - 1) / 250 - 1;
+	const int	splits = 2 + (ac - 1) / 250;
 	int			*tab;
 	t_list		*lst;
 
