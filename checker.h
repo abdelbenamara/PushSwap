@@ -6,15 +6,15 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:51:23 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/15 00:45:14 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/18 15:19:39 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
 
+# include <limits.h>
 # include "libft.h"
-# include "limits.h"
 
 long	ft_atol(const char *nptr);
 int		ft_int(t_list *lst);
