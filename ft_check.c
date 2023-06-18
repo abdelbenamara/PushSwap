@@ -6,7 +6,7 @@
 /*   By: abenamar <abenamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 10:35:10 by abenamar          #+#    #+#             */
-/*   Updated: 2023/06/03 16:33:50 by abenamar         ###   ########.fr       */
+/*   Updated: 2023/06/18 11:22:03 by abenamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ uint8_t	ft_check(const char *str, long nb, t_list *lst)
 		++i;
 	if (!str[0] || i == (str[0] == '-') || i > 10 + (str[0] == '-') || str[i])
 		return (0);
-	if (nb < -2147483648 || nb > 2147483647)
+	if (nb < INT_MIN || nb > INT_MAX)
 		return (0);
 	while (lst)
 	{
